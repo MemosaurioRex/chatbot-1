@@ -1,23 +1,44 @@
 const express = require('express');
-const app = express();
-
 require('dotenv').config()
+const flash = require('connect-flash');
+const session = require('express-session');
+const passport = require('passport');
+const morgan = require('morgan');
+
+// inicializacion
+const app = express();
+require('./database');
+require('./passport/local-auth');
+
+// settings
 
 const port = process.env.PORT || 3000;
-
-// Conexión a Base de datos
-// require('./database');
-
-// motor de plantillas
-app.set('view engine', 'ejs');
 app.set('views', __dirname + '/views');
-
-
+app.set('view engine', 'ejs');
 app.use(express.static(__dirname + "/public"));
+// middlewares
+app.use(morgan('dev'));
+app.use(express.urlencoded({extended: false}));
+app.use(session({
+  secret: 'mysecretsession',
+  resave: false,
+  saveUninitialized: false
+}));
+app.use(flash());
+app.use(passport.initialize());
+app.use(passport.session());
+
+app.use((req, res, next) => {
+    // app.locals.signinMessage = req.flash('signinMessage');
+    app.locals.signupMessage = req.flash('signupMessage');
+    // app.locals.user = req.user;
+    // console.log(app.locals)
+    next();
+  });
 
 // Rutas Web
 app.use('/', require('./router/RutasWeb'));
-app.use('/mascotas', require('./router/RutasWeb'));
+app.use('/cliente', require('./router/RutasWeb'));
 
 app.use((req, res, next) => {
     res.status(404).render("404", {

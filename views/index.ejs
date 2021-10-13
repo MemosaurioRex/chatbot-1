@@ -19,20 +19,19 @@
                                 <div class="text-center">
                                     <h1 class="h4 text-gray-900 mb-4">Bienvenido</h1>
                                 </div>
-                                <form class="user">
+                                <form class="user" action="/index" method="POST">
                                     <div class="form-group">
                                         <input type="email" class="form-control form-control-user"
-                                            id="exampleInputEmail" aria-describedby="emailHelp"
+                                            name="correo" aria-describedby="emailHelp"
                                             placeholder="Ingrese su Email...">
                                     </div>
                                     <div class="form-group">
                                         <input type="password" class="form-control form-control-user"
-                                            id="exampleInputPassword" placeholder="Contraseña">
+                                            name="password" placeholder="Contraseña">
                                     </div>
                       
-                                    <a href="homeAdm" class="btn btn-primary btn-user btn-block">
-                                        Iniciar
-                                    </a>
+                                    <button class="btn btn-primary btn-user btn-block" type="submit">Iniciar Sesion</button> 
+                          
                                     <hr>
                                     <a href="index.html" class="btn btn-google btn-user btn-block">
                                         <i class="fab fa-google fa-fw"></i> Iniciar con Google
