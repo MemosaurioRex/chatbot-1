@@ -27,25 +27,28 @@
                             <div class="form-group">
                                 <input type="email" class="form-control form-control-user" name="correo"
                                     placeholder="Ingresa tu Email">
+                                    <p style="color:#FF0000"><%= signupMessagecorreo %></p> 
                             </div>
                             <div class="form-group row">
                                 <div class="col-sm-6 mb-3 mb-sm-0">
                                     <input type="password" class="form-control form-control-user"
                                     name="password" placeholder="Contraseña">
                                 </div>
-                                <!-- <div class="col-sm-6">
+                                <div class="col-sm-6 mb-3 mb-sm-0">
                                     <input type="password" class="form-control form-control-user"
-                                        id="exampleRepeatPassword" placeholder="Repite la Contraseña">
-                                </div> -->
+                                    name="password12" placeholder="Contraseña">
+                                    
+                                    <p style="color:#FF0000"><%= signupMessagePW %></p>
+                                </div>
                             </div>
                            <button class="btn btn-primary btn-user btn-block" type="submit">Registrarse</button> 
                             <hr>
-                            <a href="index.html" class="btn btn-google btn-user btn-block">
+                            <!-- <a href="index.html" class="btn btn-google btn-user btn-block">
                                 <i class="fab fa-google fa-fw"></i> Registrarse con google
                             </a>
                             <a href="index.html" class="btn btn-facebook btn-user btn-block">
                                 <i class="fab fa-facebook-f fa-fw"></i> Registrarse con Facebook
-                            </a>
+                            </a> -->
                         </form>
                         <hr>
                         <div class="text-center">

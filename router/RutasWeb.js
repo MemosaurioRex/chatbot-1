@@ -35,7 +35,7 @@ router.get("/homeAdm", (req, res) => {
 
 router.get('/logout',(req,res,next)=>{
     req.logout();
-    res.redirect('/login')
+    res.redirect('/')
 });
     
 // function isAuthenticated(req,res,next){

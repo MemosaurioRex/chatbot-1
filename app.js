@@ -29,10 +29,15 @@ app.use(passport.initialize());
 app.use(passport.session());
 
 app.use((req, res, next) => {
-    // app.locals.signinMessage = req.flash('signinMessage');
-    app.locals.signupMessage = req.flash('signupMessage');
-    // app.locals.user = req.user;
-    // console.log(app.locals)
+  //mensaje error login
+    app.locals.signinMessagecorreo = req.flash('signinMessagecorreo');
+    app.locals.signinMessagePW= req.flash('signinMessagePW');
+  //mensajes de error de registro
+    app.locals.signupMessagecorreo = req.flash('signupMessagecorreo');
+    app.locals.signupMessagePW= req.flash('signupMessagePW');
+  
+    app.locals.user = req.user;
+    console.log(app.locals)
     next();
   });
 

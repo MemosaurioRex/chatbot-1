@@ -3,6 +3,8 @@ const bcrypt = require('bcryptjs');
 const schema = mongoose.Schema;
 
 const clienteSchema = new schema({
+    nombre:String,
+    apellido:String,
     correo:String,
     password:String
 });
